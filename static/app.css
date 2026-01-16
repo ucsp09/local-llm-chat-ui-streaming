@@ -1,0 +1,140 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Page wrapper */
+#content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chat messages area */
+#chat-message-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 16px;
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background: #fafafa;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* spacing between messages */
+}
+
+/* Common message styles */
+.user-message,
+.assistant-message {
+    display: flex;
+    max-width: 100%;
+}
+
+.user-message pre,
+.assistant-message pre {
+    margin: 0;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    white-space: pre-wrap; /* preserves line breaks */
+    word-wrap: break-word;
+    line-height: 1.5;
+}
+
+/* User message (right) */
+.user-message {
+    justify-content: flex-end;
+}
+
+.user-message pre {
+    background-color: #d1e7ff; /* light blue */
+    color: #000;
+}
+
+/* Assistant message (left) */
+.assistant-message {
+    justify-content: flex-start;
+}
+
+.assistant-message pre {
+    background-color: #f5f5dc; /* wheat */
+    color: #000;
+}
+
+/* Input container */
+#chat-input-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 1px solid #ccc;
+    padding: 12px 0;
+}
+
+/* Input form layout */
+#chat-input-form {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+}
+
+/* Textarea */
+#chat-input-text {
+    flex: 1;
+    min-height: 40px;
+    max-height: 200px; /* same as JS maxHeight */
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    resize: none; /* user cannot manually resize */
+    font-size: 14px;
+    line-height: 1.4;
+    overflow-y: hidden; /* JS will toggle overflow when needed */
+    transition: height 0.1s ease;
+}
+
+/* Submit button */
+#chat-input-submit-button {
+    padding: 0 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+#chat-input-submit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Prevent last message being hidden behind input */
+#chat-message-container {
+    padding-bottom: 120px;
+}
+
+/* Scrollbar styling (optional) */
+#chat-message-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chat-message-container::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+#chat-message-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
